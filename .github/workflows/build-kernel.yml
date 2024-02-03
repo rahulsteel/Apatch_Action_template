@@ -155,14 +155,6 @@ jobs:
           echo "LOCALVERSION=" >> $GITHUB_ENV
         fi
 
-    - name: module patch
-      run: |
-        cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/Yervant7/Apatch_Action_template -b main yv
-        cd android-kernel
-        git apply $GITHUB_WORKSPACE/kernel_workspace/yv/module_fix.patch
-        cp -r $GITHUB_WORKSPACE/kernel_workspace/yv/apatch $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-
     - name: Setup Configuration for Kernel
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
